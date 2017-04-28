@@ -1,0 +1,173 @@
+Пусть задано вероятностное пространство $(\Omega, \mathfrak{F}, P)$.
+
+\begin{definition}
+    Под случайным вектором размера $n$ будем понимать вектор
+$$
+\xi(\omega) = (\xi_1(\omega), \ldots, \xi_n(\omega))^T
+$$
+\end{definition}
+
+\begin{remark}
+    В дальнейшем будем рассматривать двумерный случай $(\xi,\eta)$
+\end{remark}
+
+\begin{definition}
+    Функцией распределения вероятностей случайног вектора $(\xi, \eta)^T$ является
+$$
+F(x, y) = P(\xi \le x, \eta \le y)
+$$
+\end{definition}
+
+\subsection{Свойства функции распределения}
+\begin{enumerate}
+    \item dom $F(x, y) = \mathbb{R}^2$
+    \item $F(x, y) \in [0, 1]$
+    \item $F(x, y)$ монотонно неубывает по каждому из аргументов
+    \item $F(x, -\infty) = F(-\infty, y) = 0$ $\forall x,y \in \mathbb{R}$
+    \item $F(x, +\infty) = F_\xi(x) = P(\xi \le x)$
+    \item $F(+\infty, y) = F_\eta(y) = P(\eta \le y)$
+    \item Если $F(x, y) = F_\xi(x)F_\eta(y)$, то $\xi,\eta$ - независимы
+\end{enumerate}
+
+\subsection{Числовые характеристики случайных векторов}
+\begin{definition}
+    Математическим ожиданием $\xi = (\xi_1, \ldots, \xi_n)^T$ называется вектор
+$$
+    M[\xi] = (M[\xi_1], \ldots, M[\xi_n])^T
+$$
+\end{definition}
+
+\begin{remark}
+У случайного вектора нет дисперсии, зато есть ковариационная матрица.
+\end{remark}
+
+\begin{definition}
+Операция центрирования случайной величины $\circ$:
+$$
+\overset{\circ}{\xi} = \xi - M[\xi]
+$$
+\end{definition}
+
+\begin{definition}
+Операция нормирования случайной величины * определяется как
+$$
+\overset{*}{\xi} = \frac{\xi - M[\xi]}{D[\xi]},
+$$
+если у случайной величины существует дисперсия, и она отлична от нуля.
+\end{definition}
+
+\begin{definition}
+Ковариацией случайных величин называется число
+$$
+cov(\xi, \eta) = M[\overset{\circ}{\xi}\overset{\circ}{\eta}],
+$$
+где $\xi,\eta$ - скаляры.
+\end{definition}
+
+\begin{definition}
+Коэффициентом корреляции называется
+$$
+r_{\xi\eta} = cov(\overset{\circ}{\xi}, \overset{\circ}{\eta})
+$$
+\end{definition}
+
+\begin{definition}
+    Пусть $\xi = (\xi_1, \ldots, \xi_n)^T$, $k_{ij} = cov(\xi_i, \xi_j)$, тогда
+    $K = (k_{ij}) = M[\overset{\circ}{\xi}\overset{\circ}{\xi}^T]$
+    - ковариационная матрица,
+    $R = (r_{\xi_i\xi_j})$ - корреляционная матрица.
+\end{definition}
+
+\subsection{Свойства числовых характеристик}
+\begin{enumerate}
+    \item $M[A\xi + B] = AM[\xi] + B$
+    \item $cov(\xi, \xi) = D[\xi]$
+    \item $cov(\xi, \eta) = cov(\eta, \xi)$
+    \item $D[a^T\xi] = a^TKa$, где $a \in \mathbb{R}^n$
+    \item Ковариационная матрица неотрицательно определена
+    \item $cov(\xi, \eta) = M[\overset{\circ}{\xi}\eta] = M[\xi\overset{\circ}{\eta}]$
+    \item $D[a\xi + b\eta] = a^2D[\xi] + b^2D[\eta] + 2abcov(\xi, \eta)$
+    \item $D[\xi_1, \ldots, \xi_n] = \underset{i,j}{\Sigma}k_{ij}$
+    \item $cov(\xi, \eta) = M[\xi\eta] - M[\xi]M[\eta]$
+    \item $\xi, \eta$ - независимы $\Rightarrow$ $M[\xi\eta] = M[\xi]M[\eta]$
+    \item $\xi, \eta$ - независимы, $\exists cov(\xi, \eta)$ $\Rightarrow cov(\xi, \eta) = 0$
+    \item $r_{\xi\eta} = \frac{cov(\xi, \eta)}{\sigma_{\xi}\sigma_{\eta}}$, гдк $\sigma$ - СКО
+    \item $\eta \ne a\xi + b, a \ne 0$ $\Rightarrow$ $r_{\xi\eta} = sign(a) =
+        \begin{cases}
+            1, & a > 0 \\
+            -1, & a < 0
+        \end{cases}
+        $
+    \item $|r_{\xi\eta}| = 1$
+    \item $|cov(\xi, \eta)| \leq \sigma_\xi\sigma_\eta$
+\end{enumerate}
+
+\begin{definition}
+    Случайный вектор называется дискретным, если он состоит из дискретных случайных величин.
+\end{definition}
+Пусть $X = {x_i}$ и $Y = {y_j}$ - множества значений ДСВ $\xi$ и $\eta$. Тогда $(x_i, y_j) \in X \times Y$,
+$P(\xi = x_i, \eta = y_j) = p_{ij}$.
+
+События ${\xi = x_i, \eta = y_j}$ образуют Полную Группу Попарно Несовместных Событий(ПГПНС).
+Общая формула подсчета вероятности вида
+$$
+P(\xi,\eta \in T) = \underset{i,j~:~x_i, y_j \in T}{\Sigma}p_{ij}
+$$
+
+Зная $p_{ij}$ легко вычислить
+$$
+P(\xi = x_i) = p_{i\bullet} = \underset{j}{\Sigma}p_{ij}
+$$
+$$
+P(\eta = y_j) = p_{\bullet j} = \underset{i}{\Sigma}p_{ij}
+$$
+
+\begin{theorem}
+    ДВС $\xi,\eta$ - независимы $\Rightarrow$ $p_{ij} = p_{i\bullet}p_{\bullet j}$ $\forall i,j$
+\end{theorem}
+
+\begin{example}
+    \begin{tabular}{|l|c|c|}
+        \hline
+        \diagbox{$\eta$}{$\xi$} & 0 & 1 \\ \hline
+        $-1$ & $0.1$ & $0.2$ \\ \hline
+        $0$ & $0.7$ & $0$ \\ \hline
+    \end{tabular} \\
+    Найти:
+    \begin{enumerate}
+        \item $P(|\xi| + |\eta| = 1)$
+        \item Ковариационную матрицу
+        \item Проверить независимость $\xi$  и $\eta$
+    \end{enumerate}
+    Решение:
+    \begin{enumerate}
+        \item $P(|\xi| + |\eta| = 1) = 0.1 + 0 = 0.1$
+        \item
+            $Law(\xi)$ \\
+            \begin{tabular}{|l|c|c|} \hline
+                $\xi$ & 0 & 1 \\ \hline
+                $p = p_{i\bullet}$ & $0.1 + 0.7 = 0.8$ & $0.2 + 0 = 0.2$ \\ \hline
+            \end{tabular}
+            \\ $Law(\eta)$ \\
+            \begin{tabular}{|l|c|c|} \hline
+                $\eta$ & -1 & 0 \\ \hline
+                $p = p_{\bullet j}$ & $0.1 + 0.2 = 0.3$ & $0.7 + 0 = 0.7$ \\ \hline
+            \end{tabular}
+            \\
+            $$M[\xi] = 0.2$$
+            $$D[\xi] = \nu_2[\xi] - (M[\xi])^2 = 0.2 - 0.2^2 = 0.16$$
+            $$M[\eta] = -0.3$$
+            $$D[\eta] = 0.21$$
+            $$cov(\xi, \eta) = M[\xi\eta] - M[\xi]M[\eta] = -0.2 - 0.2 \cdot (-0.3) = -0.14$$
+            $$M[\xi\eta] = \underset{i,j}{\Sigma}x_iy_jp_{ij} =
+               0.1 \cdot 0 \cdot (-1) + 0.2 \cdot (-1) \cdot 1 + 0.7 \cdot 0 \cdot 0 + 0 \cdot 0 \cdot 1 = -0.2$$
+             \[ \left( \begin{array}{cc}
+                $$D[\xi]$$ & $$cov(\xi, \eta)$$ \\
+                $$cov(\xi, \eta)$$ & $$D[\eta]$$ \end{array} \right) \] =
+             \[ \left( \begin{array}{ccc}
+                 $0.16$ & $-0.14$ \\
+             $-0.14$ & $0.21$ \end{array} \right)\]
+        \item Проверяем теорему о независимости ДСВ: $0.1 \ne 0.8 \cdot 0.3$ $\Rightarrow$ $\xi,\eta$ зависимы.
+    \end{enumerate}
+\end{example}
+

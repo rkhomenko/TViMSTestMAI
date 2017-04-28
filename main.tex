@@ -1,0 +1,96 @@
+\documentclass[12pt]{report}
+
+\usepackage{diagbox}
+\usepackage{fullpage}
+\usepackage{multicol,multirow}
+\usepackage{tabularx}
+\usepackage{ulem}
+\usepackage{hyperref}
+\usepackage[tocflat]{tocstyle}
+\usetocstyle{standard}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th}
+\newtheorem{lemma}{Лемма}
+\newtheorem{corollary}{Следствие}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Def}
+\newtheorem{example}{Ex}
+\newtheorem{remark}{Rem}
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+    backref
+}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace{5cm}
+    \Large{\textbf{
+        Пособие для подготовки\\
+        к контрольной работе по ТВиМСу, \\
+        составленное по конспектам лекций и семинаров, \\
+        прочитанных Каном~Ю.~С. на потоке ПМИ \\
+        8-го факультета МАИ в 2017 году}} \\
+    \vspace{15cm}
+    \textbf{Версия: 0.1}
+\end{titlepage}
+
+\thispagestyle{empty}
+\begin{flushright}
+    \Large{\textit{
+        Посвящается \\ Неповторимой, Незабываемой, Прекраснейшей Математике, \\
+        контрольной по ТВиМСу и всем тем, \\
+        кто не был на лекциях и семинарах.
+    }}
+\end{flushright}
+\newpage
+
+\thispagestyle{empty}
+\begin{center}
+    \LARGE{\textbf{ВНИМАНИЕ!}}
+\end{center}
+\Large{
+    Наборшик текста плохо разбирается в предмете, может опечататься, исказить смысл формулы и т.~д. и т.~п.
+    Используйте на свой страх и риск. В том случае, если вы будете это использовать - следите за
+    версией файла. Смена старшей цифры - исправлена фатальная теоретическая ошибка. НЕОБХОДИМО
+    скачать последнюю версию файла и сверить изменения. Смена младшей цифры - исправление мелких опечаток.
+
+    Ссылка на актуальную версию файла в README на \\ https://github.com/rkhomenko/TViMSTestMAI.git.
+
+    Замечания, опечатки и т.д. - туда же.
+}
+\newpage
+
+\tableofcontents
+
+\chapter{Случайные величины}
+\section{Основные понятия}
+\section{Дискретные случайные величины}
+\section{Непрерывные случайные величины}
+
+\chapter{Случайные векторы}
+\begin{flushright}
+    \textit{
+        Ноль семь, ноль восемь, меж берез и сосен? \\
+        Пикник на обочине. \\
+        -- баян от Кана
+    }
+\end{flushright}
+\section{Двумерные случайные величины}
+\input{chapters/2dsv.tex}
+\section{Условные распределения}
+
+\end{document}
