@@ -1,0 +1,26 @@
+Пусть задано вероятностное пространство $(\Omega, \mathfrak{F}, P)$.
+
+\begin{definition}
+Случайной величиной $\xi$ называется измеримая функция $\xi = \xi(\omega)$,
+отображающая $\Omega$ в множество $\mathbb{R}$.
+\end{definition}
+
+\begin{definition}
+Законом распределения СВ называется любое правило (таблица, функция), позволяющая находить вероятности
+всех возможных событий, связаных с СВ.
+\end{definition}
+
+\begin{definition}
+Функция $F_\xi(x) = P(\xi \leq x)$ называется функцией распределения СВ $\xi$.
+\end{definition}
+
+\subsection{Свойства функции распределения}
+\begin{enumerate}
+    \item dom$F(x) = \mathbb{R}$
+    \item $0 \leq F(x) \leq 1$ $\forall x \in \mathbb{R}$
+    \item $F(-\infty) = 0$, $F(+\infty) = 1$
+    \item $P(a < \xi < b) = P(a \leq \xi < b) = P(a < \xi \leq b) =$ \\
+          $P(a \leq \xi \leq b) = F(b) - F(a)$, $a \leq b$
+    \item $F(x_1) \geq F(x_2)$, $x_1 > x_2$, т.е. $F(x)$ неубывает
+    \item $$F(x) = \lim_{\epsilon \to 0}{F(x + \epsilon)}$$ при $\epsilon > 0$, т.е. $F(x)$ непрерывна справа
+\end{enumerate}
